@@ -4,7 +4,6 @@ import java.sql.*;
 
 public class LoginApp {
 
-    // Declare connection at the class level
     static Connection connection = null;
 
     public static void main(String[] args) {
@@ -36,7 +35,6 @@ public class LoginApp {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
 
-        // Initialize the database connection in a static block
         try {
             connection = DriverManager.getConnection("jdbc:sqlite:db/login.db");
             Statement stmt = connection.createStatement();
@@ -46,7 +44,6 @@ public class LoginApp {
             e.printStackTrace();
         }
 
-        // Register user
         registerButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 String username = usernameField.getText();
@@ -65,7 +62,6 @@ public class LoginApp {
             }
         });
 
-        // Login user
         loginButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 String username = usernameField.getText();
